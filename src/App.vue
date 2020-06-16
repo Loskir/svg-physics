@@ -158,9 +158,9 @@
         return this.cy - y * SCALE
       },
       getCoords(e) {
-        const {offsetX, offsetY} = e
-        const x = (offsetX - this.cx) / SCALE
-        const y = (this.cy - offsetY) / SCALE
+        const {clientX: ex, clientY: ey} = e
+        const x = (ex - this.cx) / SCALE
+        const y = (this.cy - ey) / SCALE
         return {x, y}
       },
       handleSVGMousemove(e) {
@@ -452,6 +452,7 @@
 
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
   }
 
   .controls {
